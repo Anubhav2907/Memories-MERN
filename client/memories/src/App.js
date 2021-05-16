@@ -9,15 +9,18 @@ import Posts from "./components/Posts/Posts.js";
 import useStyles from "./styles.js";
 
 const App = () => {
+
   const classes = useStyles();
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getPosts);
+    dispatch(getPosts());
   }, [dispatch]);
+
   return (
     <Container maxwidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="centre">
+        <Typography className={classes.heading} variant="h2" align="center">
           Memories
         </Typography>
         <img

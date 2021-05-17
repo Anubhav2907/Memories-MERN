@@ -8,6 +8,9 @@ const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("Welcome to MEMORIES App");
+});
 app.use("/posts", postRoutes);
 
 const dbURL =
@@ -17,7 +20,7 @@ const port = process.env.PORT || 3000;
 mongoose
   .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(port, function (req, res) {
+    app.listen(process.env.PORT || 5000, function (req, res) {
       console.log(`Server running on port ${port}`);
     });
   })

@@ -12,7 +12,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 import useStyles from "./styles.js";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 function Post({ post, setCurrentId }) {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -30,7 +30,11 @@ function Post({ post, setCurrentId }) {
         </Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => setCurrentId(post._id)}>
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => setCurrentId(post._id)}
+        >
           <MoreHorizIcon fontSize="default"></MoreHorizIcon>
         </Button>
       </div>
@@ -39,8 +43,16 @@ function Post({ post, setCurrentId }) {
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
+      <Typography
+        className={classes.title}
+        gutterBottom
+        variant="h5"
+        component="h2"
+      >
+        {post.title}
+      </Typography>
       <CardContent>
-        <Typography classname={classes.title} variant="h5" gutterBottom>
+        <Typography variant="body2" color="textSecondary" component="p">
           {post.message}
         </Typography>
       </CardContent>

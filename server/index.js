@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to MEMORIES App");
 });
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 
 const dbURL =
   "mongodb+srv://anubhav:memories@cluster0.9uino.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";

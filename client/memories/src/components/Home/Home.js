@@ -46,7 +46,7 @@ const Home = () => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
   const searchPost = () => {
-    if (search.trim()) {
+    if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
     } else {
       history.push("/");
@@ -93,6 +93,7 @@ const Home = () => {
               <Button
                 onClick={searchPost}
                 className={classes.searchButton}
+                variant="contained"
                 color="primary"
               >
                 Search
